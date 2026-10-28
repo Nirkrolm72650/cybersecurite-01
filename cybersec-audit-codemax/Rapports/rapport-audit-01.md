@@ -23,7 +23,7 @@ Le point d'entrée est l'interface web HTTP de l'application web DVWA, qui est a
 ### Responsabilité partagée
 La plateforme Code un max est hébergé dans le Cloud, la sécurité est répartie selon deux axes : 
 - Ce qui relève du **fournisseur** : La sécurité physique des datacenters, des hôtes de virtualisation et de l'infrastructure réseau globale.
-- ce qui relèbve de l'**entreprise** : La configuration des applications, la gestions des identités et des accès (IAM), l'application des correctifs sur les services déployés.
+- ce qui relève de l'**entreprise** : La configuration des applications, la gestions des identités et des accès (IAM), l'application des correctifs sur les services déployés.
 
 ### Chiffrement et Hachage
 * **Chiffrement symétrique** : Utilise une seule et unique clé partagée pour chiffrer et déchiffrer les données
