@@ -22,32 +22,32 @@ docker exec attaquant mkdir -p /data/crack
 docker exec attaquant bash -c "echo -n password123 | md5sum | cut -d ' ' -f1 > /data/crack/hash_md5.txt"
 ```
 
-![hash md5](/cybersecurite-01/cybersec-audit-codemax/Rapports/Screen-04/image-01.png)
+![hash md5](Screen-04/image-01.png)
 
 ## 3. Constitution d'une liste de mots de passe
 ```bash
 docker exec attaquant bash -c "printf 'azerty\n123456\npassword123\nmotdepasse\n' > /data/crack/dico.txt"
 ```
 
-![dictionnaire de mot de passe](/cybersecurite-01/cybersec-audit-codemax/Rapports/Screen-04/image-02.png)
+![dictionnaire de mot de passe](Screen-04/image-02.png)
 
 ## 4. Lancer une attaque par dictionnaire
 ```bash
 docker exec attaquant hashcat -m 0 -a 0 /data/crack/hash_md5.txt /data/crack/dico.txt --force
 ```
-![Lancement de Hashcat](/cybersecurite-01/cybersec-audit-codemax/Rapports/Screen-04/image-03.png)
+![Lancement de Hashcat](Screen-04/image-03.png)
 
 ## 4.1 Affiché le résultat trouvé
 ```bash
 docker exec attaquant hashcat -m 0 /data/crack/hash_md5.txt --show
 ```
-![Résultat de Hashcat](/cybersecurite-01/cybersec-audit-codemax/Rapports/Screen-04/image-04.png)
+![Résultat de Hashcat](Screen-04/image-04.png)
 
 ## 5. Génération d'une empreinte bcrypt salée du même mot de passe
 ```bash
 docker exec attaquant bash -c "openssl passwd -6 -salt N1aqXz7p password123 > /data/crack/hash_sha512.txt"
 ```
-![Empreinte salée](/cybersecurite-01/cybersec-audit-codemax/Rapports/Screen-04/image-05.png)
+![Empreinte salée](Screen-04/image-05.png)
 
 ### 5.1 Cassage du mot de passe avec John The Ripper
 ```bash
@@ -58,7 +58,7 @@ docker exec attaquant john --wordlist=/data/crack/dico.txt /data/crack/hash_sha5
 ```bash
 docker exec attaquant john --show /data/crack/hash_sha512.txt
 ```
-![Mot de passe trouvé avec John](/cybersecurite-01/cybersec-audit-codemax/Rapports/Screen-04/image-06.png)
+![Mot de passe trouvé avec John](Screen-04/image-06.png)
 
 
 ## 6. Conclusion
