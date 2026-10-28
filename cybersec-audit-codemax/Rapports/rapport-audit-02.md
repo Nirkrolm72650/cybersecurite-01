@@ -40,11 +40,11 @@
 | **Détection** | Analyste SOC / Blue Team |
 
 ## 7. Vérifier que le poste d'audit atteint la cible
-![ping cible ok](/Rapports/Screen-02/image-1.png)
+![ping cible ok](Screen-02/image-1.png)
 **64 bytes from 10.40.0.10** puis **3 packets transmitted, 3 received, 0% packet loss**
 
 Vérification : 
 ```bash
 docker exec attaquant ip addr show
 ```
-![ip attaquant](/Rapports/Screen-02/image-2.png)
+![ip attaquant](Screen-02/image-2.png)

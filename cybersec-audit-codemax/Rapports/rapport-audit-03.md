@@ -18,7 +18,7 @@ docker exec attaquant nmap -p- 10.40.0.10
 ```
 l'option `-p-` permet de scanner l'ensemble de tous les ports plutôt que les 1000 ports les plus utilisés.
 
-![nmap](/Rapports/Screen-02/image-3.png)
+![nmap](Screen-02/image-3.png)
 
 
 ```bash
@@ -27,7 +27,7 @@ docker exec attaquant nmap -sV -p 80 10.40.0.10
 * l'option `-sV` permet de détecter les services ainsi que leur version.
 * l'option `-p` permet de spécifier un port en particulier, ici le port 80 (HTTP)
 
-![nmap](/Rapports/Screen-02/image-4.png)
+![nmap](Screen-02/image-4.png)
 
 #### 1.4 Fingerprinting de l'application web
 **Objectif** : Collecter les en-têtes HTTP pour identifier PHP, les cookies de sessions et la redirection vers `login.php`
@@ -35,12 +35,12 @@ docker exec attaquant nmap -sV -p 80 10.40.0.10
 ```bash
 docker exec attaquant curl -s -I http://10.40.0.10/
 ```
-![fingerprint](/Rapports/Screen-02/image-5.png)
+![fingerprint](Screen-02/image-5.png)
 
 ```bash
 docker exec attaquant curl -s -I http://10.40.0.10/login.php
 ```
-![fingerprint](/Rapports/Screen-01/image-6.png)
+![fingerprint](Screen-01/image-6.png)
 
 #### 1.5 Capture et analyse du traffic HTTP
 **Objectif** : Enregistrer et analyser le traffic HTTP échangé dans un fichier `.pcap` pour relire la capture du traffic
@@ -52,16 +52,16 @@ docker exec attaquant bash -c "(sleep 2; for i in 1 2 3 4 5 6; do curl -s -o /de
 docker exec attaquant tshark -r /data/capture-recon.pcap -Y http
 ```
 
-![analyse du traffic](/Rapports/Screen-01/image-7.png)
+![analyse du traffic](Screen-01/image-7.png)
 
 ##### 1.5.1 Analyse avec Wireshark
 ```bash
 docker exec attaquant bash -c "(sleep 2; for i in 1 2 3 4 5 6; do curl -s -o /dev/null -d 'username=admin&password=password' http://10.40.0.10/login.php; done) & tshark -i eth0 -f 'host 10.40.0.10 and port 80' -c 10 -a duration:20 -w /tmp/capture-recon.pcap && cp /tmp/capture-recon.pcap /data/"
 ```
 **Filtre wireshark** : `ip.src==10.40.0.20&&http`
-![analyse du traffic](/Rapports/Screen-01/image-9.png)
+![analyse du traffic](Screen-01/image-9.png)
 
-![analyse du traffic](/Rapports/Screen-01/image-10.png)
+![analyse du traffic](Screen-01/image-10.png)
 
 
 #### 1.6 Interception et manipulation de requêtes
@@ -74,7 +74,7 @@ docker exec attaquant bash -c "apt-get install -y default-jre && curl -o /tmp/bu
 ```bash
 docker exec attaquant curl -s -v -H "User-Agent: AuditCodeMax" http://10.40.0.10/login.php -o /dev/null
 ```
-![requête personnalisée](/Rapports/Screen-01/image-8.png)
+![requête personnalisée](Screen-01/image-8.png)
 
 #### 1.7 Résultat de la reconnaissance
 - Cible : `dvwa-cible` / IP : `10.40.0.10`

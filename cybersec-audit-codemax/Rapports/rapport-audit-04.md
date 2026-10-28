@@ -9,7 +9,7 @@
 docker ps --format "{{.Names}} {{.Image}}"
 ```
 
-![dispo des conteneurs](/Rapports/Screen-03/image-01.png)
+![dispo des conteneurs](Screen-03/image-01.png)
 
 ### 2. Création d'un faut échantillon de malware inoffensif
 ```bash
@@ -17,19 +17,19 @@ docker exec attaquant bash -c "printf 'MALWARE-SAMPLE-
 EDU\nbeacon=http://10.40.0.10/c2/checkin\npersist=cron\n' > /data/sample-
 malware.txt"
 ```
-![fichier malware.txt](/Rapports/Screen-03/image-02.png)
+![fichier malware.txt](Screen-03/image-02.png)
 
 ### 3. Calculer l'empreinte SHA-256 de l'échantillon
 ```bash
 docker exec attaquant sha256sum /data/sample-malware.txt
 ```
-![Calcul de l'emprunte SHA-256 de l'échantillon](/Rapports/Screen-03/image-03.png)
+![Calcul de l'emprunte SHA-256 de l'échantillon](Screen-03/image-03.png)
 
 ### 4. Extraire les chaînes suspectes de l'échantillon
 ```bash
 docker exec attaquant grep -E "beacon|persist|c2" /data/sample-malware.txt
 ```
-![chaîne suspecte de l'échantillon](/Rapports/Screen-03/image-04.png)
+![chaîne suspecte de l'échantillon](Screen-03/image-04.png)
 
 ### 5. Démarrer la capture réseau sur l'hôte attaquant
 #### 5.1 Lancer la capture dans `/tmp`
@@ -52,19 +52,19 @@ docker exec attaquant cp /tmp/capture-c2.pcap /data/
 ```bash
 docker exec attaquant tshark -r /data/capture-c2.pcap -Y "ip.dst == 10.40.0.10 && http.request" -T fields -e http.request.full_uri
 ```
-![Relecture de la capture](/Rapports/Screen-03/image-05.png)
+![Relecture de la capture](Screen-03/image-05.png)
 
 ### 6. Simuler la prise de contact vers le faux serveur C2
 ```bash
 docker exec attaquant curl -s -o /dev/null -w "%{http_code}\n" http://10.40.0.10/c2/checkin
 ```
-![prise de contact c2](/Rapports/Screen-03/image-06.png)
+![prise de contact c2](Screen-03/image-06.png)
 
 ### 7. Analyser le trafic capturé vers la cible
 ```bash
 docker exec attaquant tshark -r /data/capture-c2.pcap -Y "ip.dst == 10.40.0.10 && http.request" -T fields -e http.request.full_uri
 ```
-![Analyse du trafic vers la cible](/Rapports/Screen-03/image-07.png)
+![Analyse du trafic vers la cible](Screen-03/image-07.png)
 
 ### 8. Présentation des IoC
 #### Indicateurs de compromission (IoC)
@@ -107,6 +107,6 @@ docker exec attaquant tshark -r /data/capture-c2.pcap -Y "ip.dst == 10.40.0.10 &
 docker exec attaquant grep -E "EICAR" /data/eicar.txt 
 ```
 
-![Extraction de la chaîne EICAR](/Rapports/Screen-03/image-08.png)
+![Extraction de la chaîne EICAR](Screen-03/image-08.png)
 
 

@@ -66,26 +66,26 @@ services:
 docker compose ps
 ``` 
 
-![outils](/Rapports/Screen-01/image-1.png)
+![outils](Screen-01/image-1.png)
 
 ## 6. Installation des outils dans la machine de l'attaquant
 ```bash
 docker exec attaquant bash -c "apt-get update && apt-get install -y iputils-ping
 curl"
 ```
-![Etat des conteneurs](/Rapports/Screen-01/image-2.png)
+![Etat des conteneurs](Screen-01/image-2.png)
 
 ## 7. Prouver que l'attaquant atteint la cible
 ```bash
 docker exec attaquant ping -c 3 10.40.0.10
 ```
-![ping cible](/Rapports/Screen-01/image-3.png)
+![ping cible](Screen-01/image-3.png)
 
 ## 8. Confirmer que le service web DVWA répond
 ```bash
 docker exec attaquant curl -s -o /dev/null -w "%{http_code}\n" http://10.40.0.10/
 ```
-![service web ok](/Rapports/Screen-01/image-4.png)
+![service web ok](Screen-01/image-4.png)
 
 ## 9. Iinitialiser la BDD DVWA
 ```bash
@@ -96,4 +96,4 @@ http://10.40.0.10/setup.php -o /dev/null; echo BASE_DVWA_PRETE"
 ```
 
 ## 10. Interface graphique de l'application web
-![GUI DVWA](/Rapports/Screen-01/image-5.png)
+![GUI DVWA](Screen-01/image-5.png)
