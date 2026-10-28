@@ -1,15 +1,15 @@
 # Audit de sécurité - Plateforme Code un max
 
 ## 1. Définition de la Triade CIA appliquée à la plateforme Code un max
-**Confidentialité** : Permet d'assurer que seules les personnes autorisées peuvent accéder au contenus.
-**Intégrité** : Permet de garantir que le contenu ne peut pas être modifiés ou corrompus de manière non autorisée.
-**Disponibilité** : Permet de s'assurer que le contenu reste acessible en toute circonstance sans interruption majeur.
+* **Confidentialité** : Permet d'assurer que seules les personnes autorisées peuvent accéder au contenus.
+* **Intégrité** : Permet de garantir que le contenu ne peut pas être modifiés ou corrompus de manière non autorisée.
+* **Disponibilité** : Permet de s'assurer que le contenu reste acessible en toute circonstance sans interruption majeur.
 
 ## 2. Différence entre menace, vulnérabilité, risque et exploit
-**Menace** : Une menace peut être un acteur ou un événement potentiel susceptible d'exploiter une faille pour nuire au système.
-**Vulnérabilité** : C'est une faiblesse ou un défaut dans la conception, dans du code ou la configuration d'un système.
-**Risque** : C'est la probalité qu'une menace exploite une vulnérabilité, combiné à l'impact que cela pourrait engendrer sur une entreprise.
-**Exploit** : C'est un code ou une technique concrète utilisée pour exploiter une vulnérabilité.
+* **Menace** : Une menace peut être un acteur ou un événement potentiel susceptible d'exploiter une faille pour nuire au système.
+* **Vulnérabilité** : C'est une faiblesse ou un défaut dans la conception, dans du code ou la configuration d'un système.
+* **Risque** : C'est la probalité qu'une menace exploite une vulnérabilité, combiné à l'impact que cela pourrait engendrer sur une entreprise.
+* **Exploit** : C'est un code ou une technique concrète utilisée pour exploiter une vulnérabilité.
 
 ## 3. Surface d'attaque du lab
 
@@ -26,9 +26,9 @@ La plateforme Code un max est hébergé dans le Cloud, la sécurité est répart
 - ce qui relèbve de l'**entreprise** : La configuration des applications, la gestions des identités et des accès (IAM), l'application des correctifs sur les services déployés.
 
 ### Chiffrement et Hachage
-**Chiffrement symétrique** : Utilise une seule et unique clé partagée pour chiffrer et déchiffrer les données
-**Chiffrement asymétrique** : Utilise une paire de clés mathématiquement liées (une clé publique pour chiffrer et une clé privée pour déchiffrer).
-**Hachage et salage** : Le hachage et la transformation irréversible d'une donnée à laquelle on ajoute une chaine de caractères aléatoire (le sel) avant le hachage pour empêcher l'utilisation de table de correspondance particulière.
+* **Chiffrement symétrique** : Utilise une seule et unique clé partagée pour chiffrer et déchiffrer les données
+* **Chiffrement asymétrique** : Utilise une paire de clés mathématiquement liées (une clé publique pour chiffrer et une clé privée pour déchiffrer).
+* **Hachage et salage** : Le hachage et la transformation irréversible d'une donnée à laquelle on ajoute une chaine de caractères aléatoire (le sel) avant le hachage pour empêcher l'utilisation de table de correspondance particulière.
 
 ## 5. Docker Compose
 ```yml
