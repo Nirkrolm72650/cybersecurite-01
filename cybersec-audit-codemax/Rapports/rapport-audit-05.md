@@ -66,7 +66,7 @@ docker exec attaquant john --show /data/crack/hash_sha512.txt
 ### 6.1 Constat de l'audit
 * **Stockage vulnérable** : L'utilisation d'algorithmes rapides non salés (ex: MD5) permettent un cassage pratiquement instantané par dictionnaire ou tables arc-en-ciel.
     - Une **table arc-en-ciel** est une base de données précalculer utlisée en cryptanalyse pour retrouver des mots de passes en clair à partir de leurs empreintes numériques.
-* **Politique de mots de passe** : L'exposition de mots de passe faibles et courants (ex: `password123`, `azerty`). La wordlist la plus célèbre et la plus utilisée et la wordlist `rockyou.txt` du même nom que de l'entreprise qui a subit une cyberattaque en décembre 2009. 
+* **Politique de mots de passe** : L'exposition de mots de passe faibles et courants (ex: `password123`, `azerty`). La wordlist la plus célèbre et la plus utilisée est la wordlist `rockyou.txt` du même nom que de l'entreprise qui a subit une cyberattaque en décembre 2009. 
 
 ### 6.2 Contre-mesures et recommandations
 * **Hachage robuste et lent** : Remplacer des algorithmes rapides comme MD5 par des algorithmes de hache lents comme `bcrypt`. Ils intègrent un "sel" qui est une donnée aléatoire unique ajoutée au mot de passe et demande un effort de calcul volontairement élevé au serveur. Cela permet de rendre le cassage très coûteux en temps pour un attaquant. Le but est de ralentir voir dissuader l'attaquant.
