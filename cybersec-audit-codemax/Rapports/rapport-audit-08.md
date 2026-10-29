@@ -85,7 +85,7 @@ Résultat obtenu : `code-unõ-mx.fr`
 ### 6.1 Mesures Techniques
 * **Techniques** : Filtrage de messagerie (SPF/DKIM/DMARC), réécriture des URL, MFA résistant au phishing.
 
-* **Humaines** : Réflexe du survol des liens, double validation (out-of-band), simulations régulières.
+* **Humaines** : Réflexe du survol des liens, double validation (out-of-band), simulations régulières. Création de fixe réflexes.
 
 ### 6.2 Procédure de signalement d'un courriel suspect
 * **Étape 1 (Employé)** : Dès qu'un courriel présente un doute, l'employé utilise le bouton de signalement intégré dans sa messagerie ou transfère le message brut à l'adresse dédiée sans cliquer sur les liens.
