@@ -1,6 +1,6 @@
 # Audit de sécurité - Plateforme Code un max
 
-### Découvrir et exploiter une faille XSS réfléchie sur DVWA
+### Découvrir et exploiter une faille XSS réfléchie, stored et dom-based
 
 ---
 
