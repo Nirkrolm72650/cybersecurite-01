@@ -1,0 +1,29 @@
+version: '3.8'
+
+networks:
+  cyberlab-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.40.0.0/16
+
+services:
+  dvwa-cible:
+    image: vulnerables/web-dvwa
+    container_name: dvwa-cible
+    networks:
+      cyberlab-net:
+        ipv4_address: 10.40.0.10
+
+  attaquant:
+    image: debian:12
+    container_name: attaquant
+    networks:
+      cyberlab-net:
+        ipv4_address: 10.40.0.20
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    command: sleep infinity
+    volumes:
+      - .:/data
