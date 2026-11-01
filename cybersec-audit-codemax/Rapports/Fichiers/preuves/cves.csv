@@ -1,6 +1,0 @@
-Identifiant,Vulnérabilité,Score CVSS, Sévérité, Priorité,Statut
-CM-001,Injection SQL (sqli low),9.8,Critique,1,confirmée
-CM-003,Mots de passe faibles / Hashs non salés,8.1,Haute,2,confirmée
-CM-002,Cross-Site Scripting réfléchi/stocké,6.1,Moyenne,3,confirmée
-CM-004,Déni de service applicatif (Slowloris),7.5,Haute,4,confirmée
-CM-005,Interception réseau MITM (ARP/DNS Spoofing),7.4,Haute,5,confirmée

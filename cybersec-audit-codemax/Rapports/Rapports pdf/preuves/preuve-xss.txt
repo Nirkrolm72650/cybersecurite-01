@@ -1,0 +1,3 @@
+Test XSS Reflechi (CM-002)
+Payload: <script>alert(1)</script>
+Result: Affiche et execute dans le navigateur au niveau low, echappe au niveau impossible.
