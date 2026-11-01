@@ -1,0 +1,2 @@
+Target URL,Place,Parameter,Technique(s),Note(s)
+http://10.40.0.10/vulnerabilities/sqli/?id=1&Submit=Submit,GET,id,BETU,

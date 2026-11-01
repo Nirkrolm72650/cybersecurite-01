@@ -1,0 +1,5 @@
+Vulnerabilite : Injection SQL (DVWA security=low)
+Vecteur CVSS v3.1 : AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+Score de base : 9.8
+Severite : Critique
+Justification : accessible a distance sans authentification, complexite faible, impact total sur la confidentialite, lintegrite et la disponibilite des donnees.
